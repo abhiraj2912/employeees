@@ -9,9 +9,10 @@ public class EmployeeDetails {
     static ArrayList <String> companyName = new ArrayList<String>();
     static ArrayList <Integer> phone = new ArrayList<Integer>();
     static ArrayList <String> email = new ArrayList<String>();
+    static Scanner sc;
 
     static void addEmployee(){
-        Scanner sc = new Scanner(System.in);
+
         int n=1;
 
 
@@ -43,6 +44,24 @@ public class EmployeeDetails {
         }
 
     }
+    static void searchEmp(){
+        System.out.println("Enter the name of the person to search");
+        String name = sc.next();
+        if(empName.contains(name)){
+           int i = empName.indexOf(name);
+            System.out.println("Found");
+            System.out.println(empId.get(i));
+            System.out.println(empName.get(i));
+            System.out.println(des.get(i));
+            System.out.println(sal.get(i));
+            System.out.println(companyName.get(i));
+            System.out.println(phone.get(i));
+            System.out.println(email.get(i));
+        }
+        else {
+            System.out.println("Not Found");
+        }
+    }
     public static void main(String[] args) {
         int x=0;
         while (x==0){
@@ -59,6 +78,8 @@ public class EmployeeDetails {
                     break;
                 case 2:
                     viewData();
+                case 3:
+                    searchEmp();
                 case 5:
                     x=1;
                     break;
