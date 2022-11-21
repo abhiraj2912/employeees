@@ -2,17 +2,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EmployeeDetails {
+    static ArrayList <Integer> empId = new ArrayList<Integer>();
+    static ArrayList <String> empName = new ArrayList<String>();
+    static ArrayList <String> des = new ArrayList<String>();
+    static ArrayList <Integer> sal = new ArrayList<Integer>();
+    static ArrayList <String> companyName = new ArrayList<String>();
+    static ArrayList <Integer> phone = new ArrayList<Integer>();
+    static ArrayList <String> email = new ArrayList<String>();
 
     static void addEmployee(){
         Scanner sc = new Scanner(System.in);
         int n=1;
-        ArrayList <Integer> empId = new ArrayList<Integer>();
-        ArrayList <String> empName = new ArrayList<String>();
-        ArrayList <String> des = new ArrayList<String>();
-        ArrayList <Integer> sal = new ArrayList<Integer>();
-        ArrayList <String> companyName = new ArrayList<String>();
-        ArrayList <Integer> phone = new ArrayList<Integer>();
-        ArrayList <String> email = new ArrayList<String>();
+
 
         System.out.println("Enter Employee ID");
         empId.add(sc.nextInt());
@@ -29,6 +30,19 @@ public class EmployeeDetails {
         System.out.println("Enter Employee Email");
         email.add(sc.next());
     }
+
+    static void viewData(){
+        for(int i=0;i< empId.size();i++){
+            System.out.println(empId.get(i));
+            System.out.println(empName.get(i));
+            System.out.println(des.get(i));
+            System.out.println(sal.get(i));
+            System.out.println(companyName.get(i));
+            System.out.println(phone.get(i));
+            System.out.println(email.get(i));
+        }
+
+    }
     public static void main(String[] args) {
         int x=0;
         while (x==0){
@@ -43,6 +57,8 @@ public class EmployeeDetails {
                 case 1:
                     addEmployee();
                     break;
+                case 2:
+                    viewData();
                 case 5:
                     x=1;
                     break;
