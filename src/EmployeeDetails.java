@@ -34,6 +34,7 @@ public class EmployeeDetails {
 
     static void viewData(){
         for(int i=0;i< empId.size();i++){
+            System.out.println("Employee "+(i+1));
             System.out.println(empId.get(i));
             System.out.println(empName.get(i));
             System.out.println(des.get(i));
@@ -44,6 +45,7 @@ public class EmployeeDetails {
         }
 
     }
+
     static void searchEmp(){
         System.out.println("Enter the name of the person to search");
         String name = sc.next();
@@ -62,6 +64,23 @@ public class EmployeeDetails {
             System.out.println("Not Found");
         }
     }
+    static void removeData(){
+        System.out.println("Enter the name of the person to delete");
+        String name = sc.next();
+        if(empName.contains(name)){
+            int i = empName.indexOf(name);
+            empId.remove(i);
+            empName.remove(i);
+            des.remove(i);
+            sal.remove(i);
+            companyName.remove(i);
+            phone.remove(i);
+            email.remove(i);
+        }
+        else {
+            System.out.println("Not Found");
+        }
+    }
     public static void main(String[] args) {
         int x=0;
         while (x==0){
@@ -70,7 +89,7 @@ public class EmployeeDetails {
             System.out.println("3. Search Employee");
             System.out.println("4. Delete Employee");
             System.out.println("5. Exit");
-            Scanner sc = new Scanner(System.in);
+            sc = new Scanner(System.in);
             int n = sc.nextInt();
             switch (n){
                 case 1:
@@ -78,8 +97,13 @@ public class EmployeeDetails {
                     break;
                 case 2:
                     viewData();
+                    break;
                 case 3:
                     searchEmp();
+                    break;
+                case 4:
+                    removeData();
+                    break;
                 case 5:
                     x=1;
                     break;
